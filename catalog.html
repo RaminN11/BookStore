@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="catalog-header">
+      <h2>📚 Наш каталог книг</h2>
+      <p>Выберите книгу и добавьте её в корзину</p>
+    </div>
+    <header><h1>Каталог</h1></header>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="cart.html">
+        Корзина <span id="cart-count" class="cart-count">0</span>
+      </a>
+      <a href="favorites.html">Избранное</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+
+    <div class="container">
+      <input
+        type="text"
+        id="search"
+        placeholder="Поиск..."
+        oninput="searchBooks()"
+      />
+      <select onchange="sortBooks(this.value)">
+        <option value="">Сортировка</option>
+        <option value="price">Сначала дешевые</option>
+        <option value="priceDesc">Сначала дорогие</option>
+        <option value="alpha">По алфавиту (А-Я)</option>
+      </select>
+<div class="filters">
+  <input type="number" id="minPrice" placeholder="Мин цена">
+  <input type="number" id="maxPrice" placeholder="Макс цена">
+  <button onclick="applyFilters()">Фильтр</button>
+</div>
+      <div class="books" id="book-list"></div>
+
+      <div id="pagination" class="pagination"></div>
+
+      <div id="reviewModal" class="modal">
+  <div class="modal-content">
+    <h3>Отзывы</h3>
+    <div id="reviewList"></div>
+
+    <input id="reviewName" placeholder="Имя"><br><br>
+    <textarea id="reviewText" placeholder="Отзыв"></textarea><br><br>
+
+    <button onclick="addReview()">Добавить</button>
+    <button onclick="closeReview()">Закрыть</button>
+  </div>
+</div>
+    </div>
+    <div id="popup" class="popup"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

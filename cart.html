@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>Корзина</h1></header>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="cart.html" aria-current="page">
+        Корзина <span id="cart-count" class="cart-count">0</span>
+      </a>
+      <a href="favorites.html">Избранное</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+
+    <section class="page-hero page-hero-cart">
+      <div class="page-hero__content">
+        <span class="page-badge">Ваш заказ</span>
+        <h1>Корзина покупок</h1>
+        <p>
+          Проверьте выбранные книги, итоговую стоимость и оформите заказ в несколько
+          кликов. Страница адаптирована для ПК, планшета и смартфона.
+        </p>
+      </div>
+    </section>
+
+    <main class="container page-shell">
+      <section class="section-block">
+        <div class="section-heading">
+          <h2>Ваши товары</h2>
+          <p>Проверьте состав заказа перед оформлением</p>
+        </div>
+
+        <div class="cart-layout">
+          <section class="cart-main info-card">
+            <div class="cart-list-head">
+              <h3>Список товаров</h3>
+              <p>Здесь отображаются книги, добавленные в корзину.</p>
+            </div>
+
+            <ul id="cart-items" class="cart-items-list"></ul>
+
+            <div class="cart-actions">
+              <button class="btn-secondary" onclick="clearCart()">Очистить корзину</button>
+              <button onclick="openCheckout()">Оформить заказ</button>
+            </div>
+          </section>
+
+          <aside class="cart-summary">
+            <div class="info-card info-card--highlight">
+              <h3>Сводка заказа</h3>
+              <div class="order-total">
+                <span>Итого к оплате</span>
+                <strong><span id="total"></span> ₽</strong>
+              </div>
+              <div class="summary-note">
+                <p>После оформления мы свяжемся с вами для подтверждения заказа.</p>
+              </div>
+            </div>
+
+            <div class="stats-panel cart-benefits">
+              <div class="stat-item">
+                <strong>🔒</strong>
+                <span>Безопасная оплата</span>
+              </div>
+              <div class="stat-item">
+                <strong>📦</strong>
+                <span>Быстрая доставка</span>
+              </div>
+              <div class="stat-item">
+                <strong>✅</strong>
+                <span>Гарантия качества</span>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>Почему удобно заказывать у нас</h3>
+              <p>
+                Мы бережно упаковываем книги, быстро подтверждаем заказы и
+                доставляем покупки по всей стране.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <div id="popup" class="popup"></div>
+    </main>
+
+    <div id="modal" class="modal">
+      <div class="modal-content modal-content--checkout">
+        <h3>Оформление заказа</h3>
+        <p class="modal-text">Оставьте номер телефона, и мы свяжемся с вами для подтверждения.</p>
+        <input id="phone" placeholder="Телефон" />
+        <div class="modal-actions">
+          <button onclick="submitOrder()">Отправить</button>
+          <button class="btn-secondary" onclick="closeModal()">Закрыть</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
